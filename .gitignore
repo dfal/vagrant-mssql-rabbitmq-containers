@@ -1,0 +1,3 @@
+.vagrant
+DB/*.mdf
+DB/*.ldf
