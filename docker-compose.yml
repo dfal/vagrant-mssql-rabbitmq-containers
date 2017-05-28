@@ -1,4 +1,4 @@
-rabbit:
+rabbitmq:
     image: library/rabbitmq
     hostname: rabbit
     environment:
@@ -15,11 +15,12 @@ rabbit:
         - "./rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
 
 sqlserver:
-    image: "microsoft/mssql-server-linux"
+    #image: "microsoft/mssql-server-linux"
+    build: "./mssql"
     environment:
         SA_PASSWORD: "#SAPassword!"
         ACCEPT_EULA: "Y"
     ports:
         - "1433:1433"
-
-
+    labels:
+        NAME: "sqlserver"

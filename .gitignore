@@ -1,3 +1,6 @@
 .vagrant
 DB/*.mdf
 DB/*.ldf
+
+mssql/data/*.ldf
+mssql/data/*.mdf

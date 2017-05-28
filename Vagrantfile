@@ -18,12 +18,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	config.vm.network "private_network", ip: "192.168.50.4"
 
-	#config.vm.provision "docker" do |d|
-	#	d.pull_images "library/rabbitmq"
-	#	d.run "library/rabbitmq",
-	#		args: "-h rabbithost -p 0.0.0.0:5672:5672 -p 0.0.0.0:15672:15672"
-	#end
-	
 	config.vm.provision :docker
 	config.vm.provision :docker_compose, rebuild: true, run: "always", yml: "/vagrant/docker-compose.yml"
 
