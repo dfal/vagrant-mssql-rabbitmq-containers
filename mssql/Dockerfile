@@ -1,3 +1,2 @@
 FROM microsoft/mssql-server-linux
-ADD "./data" "/data"
-#RUN ["python", "/data/attach_databases.py"]
+CMD /opt/mssql/bin/sqlservr & python ./data/attach-databases.py
