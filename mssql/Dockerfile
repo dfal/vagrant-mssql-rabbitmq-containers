@@ -1,2 +1,6 @@
 FROM microsoft/mssql-server-linux
-CMD /opt/mssql/bin/sqlservr & python ./data/attach-databases.py
+RUN mkdir -p /usr/data
+COPY ./data /usr/data/
+RUN chmod +x /usr/data/attach-databases.py
+WORKDIR /usr/data
+CMD python /usr/data/attach-databases.py & /opt/mssql/bin/sqlservr

@@ -8,13 +8,13 @@
 	"databases": [
 		{
 			"name": "tf_platform",
-			"mdf": "/data/tf_platform",
-			"ldf": "/data/tf_platform_log"
+			"mdf": "./tf_platform",
+			"ldf": "./tf_platform_log"
 		},
 		{
 			"name": "tf_cluster",
-			"mdf": "/data/tf_cluster",
-			"ldf": "/data/tf_cluster_log",
+			"mdf": "./tf_cluster",
+			"ldf": "./tf_cluster_log",
 			"users": [
 				{
 					"userName": "tf_tenant",
@@ -24,8 +24,8 @@
 		},
 		{
 			"name": "tf_tenant",
-			"mdf": "/data/tf_tenant",
-			"ldf": "/data/tf_tenant_log",
+			"mdf": "./tf_tenant",
+			"ldf": "./tf_tenant_log",
 			"users": [
 				{
 					"userName": "tf_tenant",
