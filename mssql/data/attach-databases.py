@@ -19,6 +19,7 @@ if 'logins' in config:
         sql = """ IF NOT EXISTS (SELECT name FROM sys.server_principals WHERE name=N'{0}') 
                   BEGIN
                     CREATE LOGIN [{0}] WITH PASSWORD=N'{1}', DEFAULT_DATABASE=[master], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+                    EXEC sp_addsrvrolemember N'{0}', 'sysadmin'
                   END 
               """.format(login['name'], login['password'])
         exec_sql("master", sql)

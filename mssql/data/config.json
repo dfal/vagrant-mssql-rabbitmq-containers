@@ -3,6 +3,10 @@
 		{
 			"name": "tf_tenant",
 			"password": "Tenant123"
+		},
+		{
+			"name": "tf_user",
+			"password": "1234"
 		}
 	],
 	"databases": [
