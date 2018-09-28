@@ -17,9 +17,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.network :forwarded_port, guest: 5672, host: 5672,   auto_correct: true
 	config.vm.network :forwarded_port, guest: 1433, host: 1433,   auto_correct: true
 
+	config.vm.network :forwarded_port, guest: 9200, host: 9200,   auto_correct: true
+	config.vm.network :forwarded_port, guest: 9300, host: 9300,   auto_correct: true
+	config.vm.network :forwarded_port, guest: 5601, host: 5601,   auto_correct: true
+
 	config.vm.network "private_network", ip: "192.168.50.4"
 
 	config.vm.provision :docker
 	config.vm.provision :docker_compose, rebuild: true, run: "always", yml: "/vagrant/docker-compose.yml"
+	#config.vm.provision :docker_compose, run: "always", yml: "/vagrant/docker-compose.yml"
 
 end

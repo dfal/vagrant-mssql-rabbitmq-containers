@@ -5,4 +5,4 @@ DB/*.ldf
 mssql/data/*.ldf
 mssql/data/*.mdf
 /mssql/data/*.bak
-/ubuntu-*.log
+/ubuntu-*-console.log
