@@ -1,26 +1,38 @@
-rabbitmq:
-    image: library/rabbitmq
-    hostname: rabbit
-    environment:
-        RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
-        RABBITMQ_DEFAULT_USER: "rabbit"
-        RABBITMQ_DEFAULT_PASS: "rabbit"
-        RABBITMQ_DEFAULT_VHOST: "/"
-    ports:
-        - "15672:15672"
-        - "5672:5672"
-    labels:
-        NAME: "rabbitmq"
-    volumes:
-        - "./rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
+version: "3"
 
-sqlserver:
-    #image: "microsoft/mssql-server-linux"
-    build: "./mssql"
-    environment:
-        SA_PASSWORD: "#SAPassword!"
-        ACCEPT_EULA: "Y"
-    ports:
-        - "1433:1433"
-    labels:
-        NAME: "sqlserver"
+services:
+
+    rabbitmq:
+        image: library/rabbitmq
+        hostname: rabbit
+        environment:
+            RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+            RABBITMQ_DEFAULT_USER: "rabbit"
+            RABBITMQ_DEFAULT_PASS: "rabbit"
+            RABBITMQ_DEFAULT_VHOST: "/"
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+        labels:
+            NAME: "rabbitmq"
+        volumes:
+            - "./rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
+
+    sqlserver:
+        build: "./mssql"
+        hostname: mssql
+        environment:
+            SA_PASSWORD: "#SAPassword!"
+            ACCEPT_EULA: "Y"
+        ports:
+            - "1433:1433"
+        labels:
+            NAME: "sqlserver"
+        volumes:
+            - "mssql-data:/var/opt/mssql"
+
+volumes:
+    mssql-data:
+        driver: local
+
+
