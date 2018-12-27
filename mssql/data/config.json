@@ -1,6 +1,14 @@
 {
 	"logins": [
 		{
+			"name": "tf_platform",
+			"password": "1234"
+		},
+		{
+			"name": "tf_cluster",
+			"password": "1234"
+		},
+		{
 			"name": "tf_tenant",
 			"password": "Tenant123"
 		},
@@ -13,13 +21,23 @@
 		{
 			"name": "tf_platform",
 			"mdf": "./tf_platform",
-			"ldf": "./tf_platform_log"
+			"ldf": "./tf_platform_log",
+			"users": [
+				{
+					"userName": "tf_platform",
+					"loginName": "tf_platform"
+				}
+			]
 		},
 		{
 			"name": "tf_cluster",
 			"mdf": "./tf_cluster",
 			"ldf": "./tf_cluster_log",
 			"users": [
+				{
+					"userName": "tf_cluster",
+					"loginName": "tf_cluster"
+				},
 				{
 					"userName": "tf_tenant",
 					"loginName": "tf_tenant"
