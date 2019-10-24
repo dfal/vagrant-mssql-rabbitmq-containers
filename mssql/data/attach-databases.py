@@ -5,10 +5,8 @@ import json
 import time
 import subprocess
 
-time.sleep(30) # wait for SQL Server to start
-
 def exec_sql(db, sql):
-    subprocess.call("/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P '#SAPassword!' -d %s -Q \"%s\"" % (db, sql), shell=True)
+    subprocess.call("/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P '#SAPassword!' -d %s -Q \"%s\" -l 30" % (db, sql), shell=True)
     return;
 
 with open('./config.json') as config_file:
